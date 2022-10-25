@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Oct 25 12:09:22 2022
-
-@author: Mi Nâu
-"""
-
 # import pygame library
 import pygame
 

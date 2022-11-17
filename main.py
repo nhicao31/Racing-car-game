@@ -41,8 +41,9 @@ def instructionIMG(x,y):
             if event.type == pygame.QUIT:
                 run = False #stop running the loop if the event type is quit
 
+#SP  
 def aboutIMG(x,y):
-    aboutimg = pygame.image.load("car game\About.png")
+    aboutimg = pygame.image.load("car game\About.png") #load new image from a file
     run = True
     while run:
         screen.blit(aboutimg,(x,y))

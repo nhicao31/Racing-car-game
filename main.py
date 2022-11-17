@@ -22,7 +22,7 @@ pygame.display.set_icon(logo)
 
 #MZ
 ############ MAKING INTRO SCREEEN ###########
-IntroFont = pygame.font.Font("freesansbold.ttf", 38) #load a new font, size 38
+IntroFont = pygame.font.Font("freesansbold.ttf", 38) #create a variable with new font, size 38
 
 def introImg(x,y):
     intro = pygame.image.load("car game\intro.png") # load 'intro' image

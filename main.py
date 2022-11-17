@@ -4,7 +4,7 @@ from pygame.locals import* #import all modules from Pygame
 import random
 import math
 import time
-screen = pygame.display.set_mode((798,600))
+screen = pygame.display.set_mode((798,600)) #set display size
 
 #initializing pygame mixer
 pygame.mixer.init()

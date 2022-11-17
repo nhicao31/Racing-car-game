@@ -67,11 +67,11 @@ def Instruction(x,y):
     instructionText = IntroFont.render("INSTRUCTION",True,(255,0,0))
     screen.blit(instructionText,(x,y))
 
-
+#SP
 def introscreen():
     run = True
-    pygame.mixer.music.load('car game/startingMusic.mp3')
-    pygame.mixer.music.play()
+    pygame.mixer.music.load('car game/startingMusic.mp3') #load a music file for playback
+    pygame.mixer.music.play() #start playing music
     while run :
         screen.fill((0,0,0))
         introImg(0,0)

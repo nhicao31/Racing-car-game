@@ -50,6 +50,8 @@ def aboutIMG(x,y):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+
+#MZ
 def play(x,y):
     playtext = IntroFont.render("PLAY",True,(255,0,0))
     screen.blit (playtext,(x,y))

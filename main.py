@@ -35,9 +35,11 @@ def instructionIMG(x,y):
     while run: # equivalent of while True -> forever loop
         screen.blit(instruct,(x,y)) #draw instructions onto game window
         pygame.display.update()
+        
+        #events = inputs (mainly from keyboard)
         for event in pygame.event.get(): #for an event in the queue of events
             if event.type == pygame.QUIT:
-                run = False #stop running the loop
+                run = False #stop running the loop if the event type is quit
 
 def aboutIMG(x,y):
     aboutimg = pygame.image.load("car game\About.png")

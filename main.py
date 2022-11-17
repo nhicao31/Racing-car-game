@@ -22,7 +22,7 @@ pygame.display.set_icon(logo)
 
 #MZ
 ############ MAKING INTRO SCREEEN ###########
-IntroFont = pygame.font.Font("freesansbold.ttf", 38) #load a new font
+IntroFont = pygame.font.Font("freesansbold.ttf", 38) #load a new font, size 38
 
 def introImg(x,y):
     intro = pygame.image.load("car game\intro.png") # load 'intro' image
@@ -129,56 +129,56 @@ def introscreen():
                  click = True
         pygame.display.update()
 
-  ###### Countdown ######
+  
+#MZ
+###### Countdown ######
 def countdown():
-    font2 = pygame.font.Font('freesansbold.ttf', 85)
-    countdownBacground = pygame.image.load('car game/bg.png')
-    three = font2.render('3',True, (187,30,16))
-    two =   font2.render('2',True, (255,255,0))
-    one =   font2.render('1',True, (51,165,50))
-    go =    font2.render('GO!!!',True, (0,255,0))
-    
-    
+    font2 = pygame.font.Font('freesansbold.ttf', 85) #font2 is the same font as before, but bigger size
+    countdownBacground = pygame.image.load('car game/bg.png') #load the background image for countdown
+    three = font2.render('3',True, (187,30,16)) #writes 3 in red
+    two =   font2.render('2',True, (255,255,0)) #writes 2 in yellow
+    one =   font2.render('1',True, (51,165,50)) #writes 1 in green
+    go =    font2.render('GO!!!',True, (0,255,0)) #writes go!! in green
 
-               ##### displaying blank background #####
-    screen.blit(countdownBacground, (0,0))
-    pygame.display.update()
+    ##### displaying blank background #####
+    screen.blit(countdownBacground, (0,0)) #draws the background onto the window at position (0,0)
+    pygame.display.update() #update display => background image will appear
 
     ###### Displaying  three (3) ######
-    screen.blit(three,(350,250))
+    screen.blit(three,(350,250)) #draws 3 onto the window
     pygame.display.update()
-    time.sleep(1)
+    time.sleep(1) #waits for 1 second
 
     ##### displaying blank background #####
     screen.blit(countdownBacground, (0,0))
     pygame.display.update()
-    time.sleep(1)
+    time.sleep(1) #waits for 1 second
 
-        ###### Displaying  two (2) ######
-    screen.blit(two,(350,250))
+    ###### Displaying  two (2) ######
+    screen.blit(two,(350,250)) #draws 2 onto the window
     pygame.display.update()
-    time.sleep(1)
-
-    ##### displaying blank background #####
-    screen.blit(countdownBacground, (0,0))
-    pygame.display.update()
-    time.sleep(1)
-
-        ###### Displaying  one (1) ######
-    screen.blit(one,(350,250))
-    pygame.display.update()
-    time.sleep(1)
+    time.sleep(1) #waits for 1 second
 
     ##### displaying blank background #####
     screen.blit(countdownBacground, (0,0))
     pygame.display.update()
-    time.sleep(1)
+    time.sleep(1) #waits for 1 second
 
-        ###### Displaying  Go!!! ######
-    screen.blit(go,(300,250))
+    ###### Displaying  one (1) ######
+    screen.blit(one,(350,250)) #draws 1 onto the window
     pygame.display.update()
-    time.sleep(1)
-    gameloop() #calling the gamloop so that our game can start after the countdown
+    time.sleep(1) #waits for 1 second
+
+    ##### displaying blank background #####
+    screen.blit(countdownBacground, (0,0))
+    pygame.display.update()
+    time.sleep(1) #waits for 1 second
+
+    ###### Displaying  Go!!! ######
+    screen.blit(go,(300,250)) #draws go!! onto the window
+    pygame.display.update() #update window display
+    time.sleep(1) #waits for 1 second
+    gameloop() #calling the gameloop so that our game can start after the countdown
     pygame.display.update()
 
 

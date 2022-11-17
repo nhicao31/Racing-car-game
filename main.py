@@ -45,12 +45,12 @@ def instructionIMG(x,y):
 def aboutIMG(x,y):
     aboutimg = pygame.image.load("car game\About.png") #load new image from a file
     run = True
-    while run:
-        screen.blit(aboutimg,(x,y))
-        pygame.display.update()
-        for event in pygame.event.get():
+    while run: 
+        screen.blit(aboutimg,(x,y)) #this function takes the background surface, draw it onto the screen and position it at (x,y)
+        pygame.display.update() #update portions of the screen for software displays
+        for event in pygame.event.get(): #get events from the queue
             if event.type == pygame.QUIT:
-                run = False
+                run = False #if the type of the event is to uninitialize all pygame modules then return false and stop running
 
 #MZ
 def play(x,y):

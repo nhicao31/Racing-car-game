@@ -79,8 +79,7 @@ def introscreen():
         Instruction(280,450) #displacing the 'Instruction' button at position (280,450)
         ABOUT(615,450) #displacing the 'ABOUT' button at position (615,450)
 
-        ####### getting coordinates of mouse cursor #######
-        x,y = pygame.mouse.get_pos()
+        x,y = pygame.mouse.get_pos() #getting the mouse cursor position
 
         ###### storing rectangle coordinates (x, y, length, height) by making variables
         button1 = pygame.Rect(60,440,175,50)

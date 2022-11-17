@@ -17,25 +17,27 @@ pygame.mixer.init()
 pygame.display.set_caption('Racing Beast')
 
 #changing the logo
-logo = pygame.image.load('car game/logo.jpeg')
+logo = pygame.image.load('car game/logo.jpeg') #load 'logo' image from car game folder
 pygame.display.set_icon(logo)
 
 #MZ
 ############ MAKING INTRO SCREEEN ###########
-IntroFont = pygame.font.Font("freesansbold.ttf", 38) #set font for 
+IntroFont = pygame.font.Font("freesansbold.ttf", 38) #load a new font
+
 def introImg(x,y):
-    intro = pygame.image.load("car game\intro.png")
-    
+    intro = pygame.image.load("car game\intro.png") # load 'intro' image
+    #draw 'intro' image onto the game window with width x and height y
     screen.blit(intro,(x,y))
+
 def instructionIMG(x,y):
-    instruct = pygame.image.load("car game\instruction.png")
+    instruct = pygame.image.load("car game\instruction.png") #load 'instruction' image as instruct
     run = True
-    while run:
-        screen.blit(instruct,(x,y))
+    while run: # equivalent of while True -> forever loop
+        screen.blit(instruct,(x,y)) #draw instructions onto game window
         pygame.display.update()
-        for event in pygame.event.get():
+        for event in pygame.event.get(): #for an event in the queue of events
             if event.type == pygame.QUIT:
-                run = False
+                run = False #stop running the loop
 
 def aboutIMG(x,y):
     aboutimg = pygame.image.load("car game\About.png")

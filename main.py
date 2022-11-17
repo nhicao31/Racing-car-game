@@ -73,11 +73,11 @@ def introscreen():
     pygame.mixer.music.load('car game/startingMusic.mp3') #load a music file for playback
     pygame.mixer.music.play() #start playing music
     while run :
-        screen.fill((0,0,0))
-        introImg(0,0)
-        play(100,450)
-        Instruction(280,450)
-        ABOUT(615,450)
+        screen.fill((0,0,0)) #fill the whole screen with a black colour (0,0,0)
+        introImg(0,0) #displace the intro image on the whole screen
+        play(100,450) #displacing the 'play' button at position (100,450)
+        Instruction(280,450) #displacing the 'Instruction' button at position (280,450)
+        ABOUT(615,450) #displacing the 'ABOUT' button at position (615,450)
 
         ####### getting coordinates of mouse cursor #######
         x,y = pygame.mouse.get_pos()

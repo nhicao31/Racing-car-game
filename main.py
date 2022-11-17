@@ -4,9 +4,9 @@ from pygame.locals import* #import all modules from Pygame
 import random
 import math
 import time
-screen = pygame.display.set_mode((798,600)) #set display size
+screen = pygame.display.set_mode((798,600)) #intialize a window for display
 
-#initializing pygame mixer
+#initializing pygame mixer (module for loading and playing sounds)
 pygame.mixer.init()
 
 #changing title of the game window

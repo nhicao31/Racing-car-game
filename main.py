@@ -54,12 +54,16 @@ def aboutIMG(x,y):
 
 #MZ
 def play(x,y):
+    #write "PLAY" in the given font, antialias = True means the characters will have smoother edges, color red
     playtext = IntroFont.render("PLAY",True,(255,0,0))
+    #draw playtext ("PLAY" written in red) onto the screen at x width and y height
     screen.blit (playtext,(x,y))
 def ABOUT(x,y):
+    #write "ABOUT" in red at the position (x,y)
     aboutText = IntroFont.render("ABOUT",True,(255,0,0))
     screen.blit (aboutText,(x,y))
 def Instruction(x,y):
+    #write 'INSTRUCTION' in red at position (x,y)
     instructionText = IntroFont.render("INSTRUCTION",True,(255,0,0))
     screen.blit(instructionText,(x,y))
 

@@ -1,3 +1,7 @@
+#Sally Pham = SP
+#Minh-Anh Zaiser = MZ
+
+#MZ
 import pygame,sys
 pygame.init() #initializes the Pygame
 from pygame.locals import* #import all modules from Pygame
@@ -16,9 +20,9 @@ pygame.display.set_caption('Racing Beast')
 logo = pygame.image.load('car game/logo.jpeg')
 pygame.display.set_icon(logo)
 
-
+#MZ
 ############ MAKING INTRO SCREEEN ###########
-IntroFont = pygame.font.Font("freesansbold.ttf", 38)
+IntroFont = pygame.font.Font("freesansbold.ttf", 38) #set font for 
 def introImg(x,y):
     intro = pygame.image.load("car game\intro.png")
     

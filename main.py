@@ -20,7 +20,7 @@ pygame.display.set_caption('Racing Beast')
 logo = pygame.image.load('car game/logo.jpeg') #load 'logo' image from car game folder
 pygame.display.set_icon(logo)
 
-#MZ
+
 ############ MAKING INTRO SCREEEN ###########
 IntroFont = pygame.font.Font("freesansbold.ttf", 38) #create a variable with new font, size 38
 
@@ -181,6 +181,7 @@ def countdown():
     pygame.display.update()
 
 
+#SP
 #defining our gameloop function
 def gameloop():
 
@@ -357,15 +358,17 @@ def gameloop():
           
          
 
-
+#MZ
         #DETECTING COLLISIONS BETWEEN THE CARS
 
         #getting distance between our main car and car1
         def iscollision(car1X,car1Y,maincarX,maincarY):
+            
+            #Using the formula to calculate distance from the coordinates
+            #Distance between the main car (controlled by player) and car 1 (obstacle car)
             distance = math.sqrt(math.pow(car1X-maincarX,2) + math.pow(car1Y - maincarY,2)) 
 
-            #checking if distance is smaller than 50 after then collision will occur
-
+            #checking if distance is smaller than 50, then collision will occur
             if distance < 50: 
                 return True
             else:
@@ -375,7 +378,7 @@ def gameloop():
         def iscollision(car2X,car2Y,maincarX,maincarY):
             distance = math.sqrt(math.pow(car2X-maincarX,2) + math.pow(car2Y - maincarY,2))
 
-            #checking if distance is smaller than 50 after then collision will occur
+            #checking if distance is smaller than 50, then collision will occur
             if distance < 50:
                 return True
             else:
@@ -385,7 +388,7 @@ def gameloop():
         def iscollision(car3X,car3Y,maincarX,maincarY):
             distance = math.sqrt(math.pow(car3X-maincarX,2) + math.pow(car3Y - maincarY,2))
 
-            #checking if distance is smaller then 50 after then collision will occur
+            #checking if distance is smaller then 50, then collision will occur
             if distance < 50:
                 return True
             else:
@@ -394,18 +397,20 @@ def gameloop():
         ##### giving collision a variable #####
 
         #collision between maincar and car1
+        #coll1 = True if the distance between car1 and main car is smaller than 50
         coll1 = iscollision(car1X,car1Y,maincarX,maincarY) 
 
         #collision between maincar and car2
+        #coll2 = True if the distance between car2 and main car is smaller than 50
+
         coll2 = iscollision(car2X,car2Y,maincarX,maincarY) 
 
         #collision between maincar and car3
+        #coll3 = True if the distance between car3 and main car is smaller than 50
         coll3 = iscollision(car3X,car3Y,maincarX,maincarY) 
 
-        #if coll1 occur
-        if coll1: 
-            
-            
+        #if coll1 = True => if the 2 cars are too close
+        if coll1:
             car1Ychange = 0
             car2Ychange = 0
             car3Ychange = 0
@@ -414,19 +419,16 @@ def gameloop():
             car3Y = 0
             maincarX_change = 0
             maincarY_change = 0
+            #stop music
             pygame.mixer.music.stop()
+            #play crash sound effect
             crash_sound.play()
         ###### calling our game over function #######
-            time.sleep(1)
+            time.sleep(1) #wait 1 second
             gameover()
           
-           
-            
-        
-        #if coll2 occur
+        #if coll2 is True
         if coll2:
-           
-            
             car1Ychange = 0
             car2Ychange = 0
             car3Ychange = 0
@@ -442,10 +444,8 @@ def gameloop():
             gameover()
            
 
-        #if coll3 occur    
-        if coll3:
-            
-           
+        #if coll3 is True    
+        if coll3:       
             car1Ychange = 0
             car2Ychange = 0
             car3Ychange = 0
@@ -460,17 +460,16 @@ def gameloop():
             time.sleep(1)
             gameover()
         
+        #If any of the 3 cars collided with the main car 
+        # => coll1, coll2 or coll3 True
         if car1Ychange == 0 and car2Ychange == 0 and car3Ychange == 0 :
           pass
             
-            
-         
-            
-        
+
         # writing to our highscore.txt file
-        with open ("car game\highscore.txt","w") as f:
-            f.write(str(highscore))
+        with open ("car game\highscore.txt","w") as f: #opens the highscore file as f
+            f.write(str(highscore)) #writes highscore value into the value
         
 
         pygame.display.update()
-introscreen()
+introscreen() #back to intro screen from the beginning

@@ -82,9 +82,9 @@ def introscreen():
         x,y = pygame.mouse.get_pos() #getting the mouse cursor position
 
         ###### storing rectangle coordinates (x, y, length, height) by making variables
-        button1 = pygame.Rect(60,440,175,50)
-        button2 = pygame.Rect(265,440,300,50)
-        button3 = pygame.Rect(600,440,165,50)
+        button1 = pygame.Rect(60,440,175,50) #creating a rectangle at coordinates (60,440,175,50)
+        button2 = pygame.Rect(265,440,300,50) #creating a rectangle at coordinates (265,440,300,50)
+        button3 = pygame.Rect(600,440,165,50) #creating a rectangle at coordinates (600,440,165,50)
 
         ##### Drawing rectangles with stored coorditates of rectangles.######
         ###### pygame.draw.rect takes these arguments (surface, color, coordinates, border) #####

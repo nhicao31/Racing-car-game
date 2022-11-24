@@ -103,23 +103,19 @@ def introscreen():
                 instructionIMG(0,0) #display the instruction image
 
         
-        #### if our cursor is on button3 which is ABOUT button
-        if button3.collidepoint(x,y):
-        ### changing from inactive to active by changing the color from white to red 
-            pygame.draw.rect(screen,(155,0,0),button3,6)
-        #### if we click on the ABOUT button ####
-            if click:
-                aboutIMG(0,0) ### DISPLAYING OUR ABOUT IMAGE BY CALLING IT
+        if button3.collidepoint(x,y): #if the cursor is on button3 (ABOUT button) 
+            pygame.draw.rect(screen,(155,0,0),button3,6) #change from inactive to active by changing color from white to red
+            if click: #if click on the ABOUT button
+                aboutIMG(0,0) #display the about image
                 
-        ###### checking for mouse click event
-        click = False
-        for event in pygame.event.get():
+        click = False #checking for mouse click event
+        for event in pygame.event.get(): #handles the internal events and retrieves a list of external events
          if event.type == pygame.QUIT:
-            run = False
-         if event.type == pygame.MOUSEBUTTONDOWN:
-             if event.button == 1:
-                 click = True
-        pygame.display.update()
+            run = False #if the type of the event is to uninitialize all pygame modules then return false and stop running
+         if event.type == pygame.MOUSEBUTTONDOWN: #check if it is clicked
+             if event.button == 1: #check if it is left click
+                 click = True #enable whatever is clicked
+        pygame.display.update() #make the display surface appear on the screen
 
   
 #MZ

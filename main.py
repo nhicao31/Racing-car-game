@@ -171,14 +171,11 @@ def countdown():
 
 
 #SP
-#defining our gameloop function
-def gameloop():
+def gameloop(): #defining our gameloop function
 
-      ####### music ####### 
-    pygame.mixer.music.load('car game\BackgroundMusic.mp3')
-    pygame.mixer.music.play()
-    ###### sound effect for collision ######
-    crash_sound = pygame.mixer.Sound('car game\car_crash.wav')
+    pygame.mixer.music.load('car game\BackgroundMusic.mp3') #load a music file
+    pygame.mixer.music.play() #start the music
+    crash_sound = pygame.mixer.Sound('car game\car_crash.wav') #create a new Sound object from a file for collision
 
     ####### scoring part ######
     score_value = 0

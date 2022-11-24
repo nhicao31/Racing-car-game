@@ -81,24 +81,20 @@ def introscreen():
 
         x,y = pygame.mouse.get_pos() #getting the mouse cursor position
 
-        ###### storing rectangle coordinates (x, y, length, height) by making variables
+        #storing rectangle coordinates (x, y, length, height) by making variables
         button1 = pygame.Rect(60,440,175,50) #creating a rectangle at coordinates (60,440,175,50)
         button2 = pygame.Rect(265,440,300,50) #creating a rectangle at coordinates (265,440,300,50)
         button3 = pygame.Rect(600,440,165,50) #creating a rectangle at coordinates (600,440,165,50)
 
-        ##### Drawing rectangles with stored coorditates of rectangles.######
-        ###### pygame.draw.rect takes these arguments (surface, color, coordinates, border) #####
         pygame.draw.rect(screen, (255,255,255), button1,6)
         pygame.draw.rect(screen, (255,255,255), button2,6)
         pygame.draw.rect(screen,(255,255,255),button3,6)
+        #pygame.draw.rect takes these arguments (surface, color, coordinates, border)
 
-        #### if our cursor is on button1 which is PLAY button
-        if button1.collidepoint(x,y):
-        ### changing from inactive to active by changing the color from white to red 
-            pygame.draw.rect(screen, (155,0,0), button1,6)
-        #### if we click on the PLAY button ####
-            if click:
-                countdown() ## CALLING COUNTDOWN FUNCTION TO START OUR GAME
+        if button1.collidepoint(x,y): #if the cursor is on button1 (PLAY button)
+            pygame.draw.rect(screen, (155,0,0), button1,6) #change from inactive to active by changing color from white to red
+            if click: #if click on the PLAY button
+                countdown() #move to the countdown function to start the game
 
 
         #### if our cursor is on button2 which is INSTRUCTION button

@@ -46,7 +46,7 @@ def aboutIMG(x,y):
     aboutimg = pygame.image.load("car game\About.png") #load new image from a file
     run = True
     while run: 
-        screen.blit(aboutimg,(x,y)) #this function takes the background surface, draw it onto the screen and position it at (x,y)
+        screen.blit(aboutimg,(x,y)) #takes the background surface (aboutimg), draw the image onto the screen
         pygame.display.update() #update portions of the screen for software displays
         for event in pygame.event.get(): #get events from the queue
             if event.type == pygame.QUIT:
@@ -177,13 +177,13 @@ def gameloop(): #defining our gameloop function
     pygame.mixer.music.play() #start the music
     crash_sound = pygame.mixer.Sound('car game\car_crash.wav') #create a new Sound object from a file for collision
 
-    ####### scoring part ######
-    score_value = 0
-    font1= pygame.font.Font("freesansbold.ttf",25)
+    #scoring part
+    score_value = 0 #introduce score_value variable
+    font1= pygame.font.Font("freesansbold.ttf",25)  #create a new Font object from a file with size 25
 
     def show_score(x,y):
-        score = font1.render("SCORE: "+ str(score_value), True, (255,0,0))
-        screen.blit(score, (x,y))
+        score = font1.render("SCORE: "+ str(score_value), True, (255,0,0)) #show score on new surface: render(text, antialias, color, background=None)
+        screen.blit(score, (x,y)) #takes the "score" surface and display the score onto the screen
 
     #highscore part
     with open ("car game\highscore.txt","r") as f:

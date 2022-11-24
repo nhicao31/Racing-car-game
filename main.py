@@ -218,15 +218,15 @@ def gameloop(): #defining our gameloop function
                     pygame.quit()
                     sys.exit() #quit and exit game
         
+   
+
+    bg = pygame.image.load('car game/bg.png') #setting background image
     
-    #setting background image
-    bg = pygame.image.load('car game/bg.png')
     
-    
-    # setting our player
-    maincar = pygame.image.load('car game\car.png')
-    maincarX = 350
-    maincarY = 495
+    # setting player's car
+    maincar = pygame.image.load('car game\car.png') #setting image for car
+    maincarX = 350 #position of car on x axis
+    maincarY = 495 #position of car on y axis
     maincarX_change = 0
     maincarY_change = 0
 

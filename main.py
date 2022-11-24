@@ -97,13 +97,10 @@ def introscreen():
                 countdown() #move to the countdown function to start the game
 
 
-        #### if our cursor is on button2 which is INSTRUCTION button
-        if button2.collidepoint(x,y):
-        ### changing from inactive to active by changing the color from white to red 
-            pygame.draw.rect(screen, (155,0,0), button2,6)
-        #### if we click on the INSTRUCTION button ####
-            if click:
-                instructionIMG(0,0)### DISPLAYING OUR INSTRUCTION IMAGE BY CALLING IT
+        if button2.collidepoint(x,y): #if the cursor is on button2 (INSTRUCTION button) 
+            pygame.draw.rect(screen, (155,0,0), button2,6) #change from inactive to active by changing color from white to red
+            if click: #if click on the INSTRUCTION button
+                instructionIMG(0,0) #display the instruction image
 
         
         #### if our cursor is on button3 which is ABOUT button

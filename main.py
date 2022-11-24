@@ -186,15 +186,14 @@ def gameloop(): #defining our gameloop function
         screen.blit(score, (x,y)) #takes the "score" surface and display the score onto the screen
 
     #highscore part
-    with open ("car game\highscore.txt","r") as f:
-            highscore = f.read()
-    def show_highscore(x,y):
-        Hiscore_text = font1.render('HISCORE :' + str(highscore),True,(255,0,0))
-        screen.blit (Hiscore_text,(x,y))
-        pygame.display.update()
+    with open ("car game\highscore.txt","r") as f: #open the file using "with" so you do not have to close the file later, it'll close itself
+            highscore = f.read() #read a single line from the file
+    def show_highscore(x,y): 
+        Hiscore_text = font1.render('HISCORE :' + str(highscore),True,(255,0,0)) #show high score on new surface: render(text, antialias, color, background=None)
+        screen.blit (Hiscore_text,(x,y)) #takes the "Hiscore_text" surface and display the high score onto the screen
+        pygame.display.update() #make the display surface appear on the screen
     
-    ###### creating our game over function #######
-
+    #game over function
     def gameover():
         gameoverImg = pygame.image.load("car game\gameover.png")
         run = True

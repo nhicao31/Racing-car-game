@@ -195,28 +195,28 @@ def gameloop(): #defining our gameloop function
     
     #game over function
     def gameover():
-        gameoverImg = pygame.image.load("car game\gameover.png")
-        run = True
+        gameoverImg = pygame.image.load("car game\gameover.png") #setting the image when the game is over
+        run = True 
         while run:
 
-            screen.blit(gameoverImg,(0,0))
-            time.sleep(0.5)
-            show_score(330,400)
-            time.sleep(0.5)
-            show_highscore(330,450)
-            pygame.display.update()
+            screen.blit(gameoverImg,(0,0)) #takes the "gameoverImg" surface and display on the screen
+            time.sleep(0.5) #add delay in time: 0.5 seconds
+            show_score(330,400) #run the function show_score
+            time.sleep(0.5) #add delay in time: 0.5 seconds
+            show_highscore(330,450) #run the function show_highscore
+            pygame.display.update() #make the display surface appear on the screen
             
-            for event in pygame.event.get():
-             if event.type == pygame.QUIT:
+            for event in pygame.event.get(): #handles the internal events and retrieves a list of external events
+             if event.type == pygame.QUIT: 
                 run = False
                 pygame.quit()
-                sys.exit()
-             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    countdown()
-                if event.key == pygame.K_ESCAPE:
+                sys.exit() #if the type of the event is to uninitialize all pygame modules then return false, quit pygame and stop running
+             if event.type == pygame.KEYDOWN: #detect if it is clicked
+                if event.key == pygame.K_SPACE: #if space key is pressed
+                    countdown() #enable countdown function
+                if event.key == pygame.K_ESCAPE: #is escape key is pressed
                     pygame.quit()
-                    sys.exit()
+                    sys.exit() #quit and exit game
         
     
     #setting background image

@@ -223,10 +223,10 @@ def gameloop(): #defining our gameloop function
     bg = pygame.image.load('car game/bg.png') #setting background image
     
     
-    # setting player's car
-    maincar = pygame.image.load('car game\car.png') #setting image for car
-    maincarX = 350 #position of car on x axis
-    maincarY = 495 #position of car on y axis
+    # setting player's main car
+    maincar = pygame.image.load('car game\car.png') #setting image for main car
+    maincarX = 350 #position of main car on x axis
+    maincarY = 495 #position of main car on y axis
     maincarX_change = 0
     maincarY_change = 0
 

@@ -227,47 +227,46 @@ def gameloop(): #defining our gameloop function
     maincar = pygame.image.load('car game\car.png') #setting image for main car
     maincarX = 350 #position of main car on x axis
     maincarY = 495 #position of main car on y axis
-    maincarX_change = 0 #introduce maincarX_change variable
-    maincarY_change = 0 #introduce maincarY_change variable
+    maincarX_change = 0 #introduce position of maincarX_change variable
+    maincarY_change = 0 #introduce position of maincarY_change variable
 
     #other cars
     car1 = pygame.image.load('car game\car1.jpeg') #setting the image to car1
     car1X = random.randint(178,490) #generate random numbers: randint(start, end)
-    car1Y = 100 #setting value to variable car1Y
-    car1Ychange = 10 #setting value to variable car1Ychange
+    car1Y = 100 #setting position to car1Y
+    car1Ychange = 10 #setting position to car1Ychange
     
     car2 = pygame.image.load('car game\car2.png') #setting the image to car2
     car2X = random.randint(178,490) #generate random numbers: randint(start, end)
-    car2Y = 100 #setting value to variable car2Y
-    car2Ychange = 10 #setting value to variable car2Ychange
+    car2Y = 100 #setting position to car2Y
+    car2Ychange = 10 #setting position to car2Ychange
 
     car3 = pygame.image.load('car game\car3.png') #setting the image to car3
     car3X = random.randint(178,490) #generate random numbers: randint(start, end)
-    car3Y = 100 #setting value to variable car3Y
-    car3Ychange = 10 #setting value to variable car3Ychange
+    car3Y = 100 #setting position to car3Y
+    car3Ychange = 10 #setting position to car3Ychange
        
 
     run = True
     while run:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+        for event in pygame.event.get(): #handles the internal events and retrieves a list of external events
+            if event.type == pygame.QUIT: 
                 run = False
                 pygame.quit()
-                sys.exit()
+                sys.exit() #if the type of the event is to uninitialize all pygame modules then return false, quit and stop running
 
-                #checking if any key has been pressed
-            if event.type == pygame.KEYDOWN: 
-                if event.key == pygame.K_RIGHT:
-                    maincarX_change += 5
+            if event.type == pygame.KEYDOWN: #check if any key is pressed
+                if event.key == pygame.K_RIGHT: #if right key is pressed
+                    maincarX_change += 5 #move main car to the right 5
             
-                if event.key == pygame.K_LEFT:
-                    maincarX_change -= 5
+                if event.key == pygame.K_LEFT: #if left key is pressed
+                    maincarX_change -= 5 #move main car to the left 5
                 
-                if event.key == pygame.K_UP:
-                    maincarY_change -= 5
+                if event.key == pygame.K_UP: #if up key is pressed
+                    maincarY_change -= 5 #move main car up 5
                     
-                if event.key == pygame.K_DOWN:
-                    maincarY_change += 5
+                if event.key == pygame.K_DOWN: #if down key is pressed
+                    maincarY_change += 5 #move main car down 5
 
                 #checking if key has been lifted up
             if event.type == pygame.KEYUP: 

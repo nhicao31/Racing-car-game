@@ -268,19 +268,18 @@ def gameloop(): #defining our gameloop function
                 if event.key == pygame.K_DOWN: #if down key is pressed
                     maincarY_change += 5 #move main car down 5
 
-                #checking if key has been lifted up
-            if event.type == pygame.KEYUP: 
-                if event.key == pygame.K_RIGHT:
-                    maincarX_change = 0
+            if event.type == pygame.KEYUP: #check if key is lifted up
+                if event.key == pygame.K_RIGHT: #if right key is lifted up
+                    maincarX_change = 0 #no change is made
             
-                if event.key == pygame.K_LEFT:
-                    maincarX_change = 0
+                if event.key == pygame.K_LEFT: #if left key is lifted up
+                    maincarX_change = 0 #no change is made
                 
-                if event.key == pygame.K_UP:
-                    maincarY_change = 0
+                if event.key == pygame.K_UP: #if up key is lifted up
+                    maincarY_change = 0 #no change is made
                     
-                if event.key == pygame.K_DOWN:
-                    maincarY_change = 0            
+                if event.key == pygame.K_DOWN: #if down key is lifted up
+                    maincarY_change = 0 #no change is made     
 
         #setting boundary for our main car
         if maincarX < 178:

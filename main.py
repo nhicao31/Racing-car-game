@@ -328,9 +328,9 @@ def gameloop(): #defining our gameloop function
             car3X = random.randint(178,490) #generate random position for x value of car3
             score_value += 1 #add 1 to score
 
-        #checking if highscore has been created
-        if score_value > int(highscore): #if score is greater than highscore
-            highscore = score_value
+        #create highscore
+        if score_value > int(highscore): #if score_value is greater than highscore
+            highscore = score_value #show highscore as score_value
 
           
          

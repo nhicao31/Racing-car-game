@@ -281,62 +281,55 @@ def gameloop(): #defining our gameloop function
                 if event.key == pygame.K_DOWN: #if down key is lifted up
                     maincarY_change = 0 #no change is made     
 
-        #setting boundary for our main car
-        if maincarX < 178:
-            maincarX = 178
-        if maincarX > 490:
-            maincarX = 490
+        #setting boundary for main car
+        if maincarX < 178: #if position of car is less than 178
+            maincarX = 178 #then position of car is 178
+        if maincarX > 490: #if position of car is greater than 490
+            maincarX = 490 #then position of car is 490
         
-        if maincarY < 0:
-            maincarY = 0
-        if maincarY > 495:
-            maincarY = 495
+        if maincarY < 0: #if position of car is less than 0
+            maincarY = 0 #then position of car is 0
+        if maincarY > 495: #if position of car is greater than 495
+            maincarY = 495 #then position of car is 495
 
 
-        #CHANGING COLOR WITH RGB VALUE, RGB = RED, GREEN, BLUE 
-        screen.fill((0,0,0))
+        screen.fill((0,0,0)) #fill the display with black
 
-        #displaying the background image
-        screen.blit(bg,(0,0))
+        screen.blit(bg,(0,0)) #displaying the background image
 
-        #displaying our main car
-        screen.blit(maincar,(maincarX,maincarY))
+        screen.blit(maincar,(maincarX,maincarY)) #displaying our main car
 
-        #displaing other cars
-        screen.blit(car1,(car1X,car1Y))
-        screen.blit(car2,(car2X,car2Y))
-        screen.blit(car3,(car3X,car3Y))
-          #calling our show_score function
-        show_score(570,280)
-        #calling show_hiscore function
-        show_highscore(0,0)
+        screen.blit(car1,(car1X,car1Y)) #displace car1
+        screen.blit(car2,(car2X,car2Y)) #displace car2
+        screen.blit(car3,(car3X,car3Y)) #displace car3
+        show_score(570,280) #enable show_score function
+        show_highscore(0,0) #enable show_hiscore function
 
         
-        
-        #updating the values
-        maincarX += maincarX_change
-        maincarY += maincarY_change
+        #updating postion of main car
+        maincarX += maincarX_change #main car position + the changed position of main car
+        maincarY += maincarY_change #main car position + the changed position of main car
 
-        #movement of the enemies
-        car1Y += car1Ychange
-        car2Y += car2Ychange
-        car3Y += car3Ychange
-        #moving enemies infinitely
-        if car1Y > 670:
-            car1Y = -100
-            car1X = random.randint(178,490)
-            score_value += 1
-        if car2Y > 670:
-            car2Y = -150
-            car2X = random.randint(178,490)
-            score_value += 1
-        if car3Y > 670:
-            car3Y = -200
-            car3X = random.randint(178,490)
-            score_value += 1
+        #movement of other cars
+        car1Y += car1Ychange #car position + the changed position of car
+        car2Y += car2Ychange #car position + the changed position of car
+        car3Y += car3Ychange #car position + the changed position of car
+        #moving other cars infinitely
+        if car1Y > 670: #if position of car1 is greater than 670
+            car1Y = -100 #y value of car1 is set at -100
+            car1X = random.randint(178,490) #generate random position for x value of car1
+            score_value += 1 #add 1 to score
+        if car2Y > 670: #if position of car2 is greater than 670
+            car2Y = -150 #y value of car2 is set at -150
+            car2X = random.randint(178,490) #generate random position for x value of car2
+            score_value += 1 #add 1 to score
+        if car3Y > 670: #if position of car3 is greater than 670
+            car3Y = -200 #y value of car3 is set at -200
+            car3X = random.randint(178,490) #generate random position for x value of car3
+            score_value += 1 #add 1 to score
 
         #checking if highscore has been created
-        if score_value > int(highscore):
+        if score_value > int(highscore): #if score is greater than highscore
             highscore = score_value
 
           

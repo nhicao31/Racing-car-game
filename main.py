@@ -227,8 +227,8 @@ def gameloop(): #defining our gameloop function
     maincar = pygame.image.load('car game\car.png') #setting image for main car
     maincarX = 350 #position of main car on x axis
     maincarY = 495 #position of main car on y axis
-    maincarX_change = 0
-    maincarY_change = 0
+    maincarX_change = 0 #introduce maincarX_change variable
+    maincarY_change = 0 #introduce maincarY_change variable
 
     #other cars
     car1 = pygame.image.load('car game\car1.jpeg')

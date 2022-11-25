@@ -231,19 +231,20 @@ def gameloop(): #defining our gameloop function
     maincarY_change = 0 #introduce maincarY_change variable
 
     #other cars
-    car1 = pygame.image.load('car game\car1.jpeg')
-    car1X = random.randint(178,490)
-    car1Y = 100
-    car1Ychange = 10    
-    car2 = pygame.image.load('car game\car2.png')
-    car2X = random.randint(178,490)
-    car2Y = 100
-    car2Ychange = 10
+    car1 = pygame.image.load('car game\car1.jpeg') #setting the image to car1
+    car1X = random.randint(178,490) #generate random numbers: randint(start, end)
+    car1Y = 100 #setting value to variable car1Y
+    car1Ychange = 10 #setting value to variable car1Ychange
+    
+    car2 = pygame.image.load('car game\car2.png') #setting the image to car2
+    car2X = random.randint(178,490) #generate random numbers: randint(start, end)
+    car2Y = 100 #setting value to variable car2Y
+    car2Ychange = 10 #setting value to variable car2Ychange
 
-    car3 = pygame.image.load('car game\car3.png')
-    car3X = random.randint(178,490)
-    car3Y = 100
-    car3Ychange = 10
+    car3 = pygame.image.load('car game\car3.png') #setting the image to car3
+    car3X = random.randint(178,490) #generate random numbers: randint(start, end)
+    car3Y = 100 #setting value to variable car3Y
+    car3Ychange = 10 #setting value to variable car3Ychange
        
 
     run = True

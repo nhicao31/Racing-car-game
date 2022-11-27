@@ -135,32 +135,32 @@ def countdown():
     ###### Displaying  three (3) ######
     screen.blit(three,(350,250)) #draws 3 onto the window
     pygame.display.update()
-    time.sleep(1) #waits for 1 second
+    time.sleep(0.5) #waits for 1/2 second
 
     ##### displaying blank background #####
     screen.blit(countdownBacground, (0,0))
     pygame.display.update()
-    time.sleep(1) #waits for 1 second
+    time.sleep(0.5) #waits for 1/2 second
 
     ###### Displaying  two (2) ######
     screen.blit(two,(350,250)) #draws 2 onto the window
     pygame.display.update()
-    time.sleep(1) #waits for 1 second
+    time.sleep(0.5) #waits for 1/2 second
 
     ##### displaying blank background #####
     screen.blit(countdownBacground, (0,0))
     pygame.display.update()
-    time.sleep(1) #waits for 1 second
+    time.sleep(0.5) #waits for 1/2 second
 
     ###### Displaying  one (1) ######
     screen.blit(one,(350,250)) #draws 1 onto the window
     pygame.display.update()
-    time.sleep(1) #waits for 1 second
+    time.sleep(0.5) #waits for 1/2 second
 
     ##### displaying blank background #####
     screen.blit(countdownBacground, (0,0))
     pygame.display.update()
-    time.sleep(1) #waits for 1 second
+    time.sleep(0.5) #waits for 1/2 second
 
     ###### Displaying  Go!!! ######
     screen.blit(go,(300,250)) #draws go!! onto the window
@@ -247,6 +247,8 @@ def gameloop(): #defining our gameloop function
     car3Ychange = 10 #setting position to car3Ychange
        
 
+    time.sleep(3) #wait for 3 seconds before the cars start coming so the game has time to load    
+        
     run = True
     while run:
         for event in pygame.event.get(): #handles the internal events and retrieves a list of external events

@@ -230,27 +230,41 @@ def gameloop(): #defining our gameloop function
     maincarX_change = 0 #introduce position of maincarX_change variable
     maincarY_change = 0 #introduce position of maincarY_change variable
 
+    
+    
+    #random x positions for the obstacles
+    random_x = list(range(178,490))
+    random_x = random_x[::50] #make sure the cars don't overlap
+    
+    #3 random x positions
+    obstacle_x = random.sample(random_x, 3)
+    
     #other cars
     car1 = pygame.image.load('car game\car1.jpeg') #setting the image to car1
-    car1X = random.randint(178,490) #generate random numbers: randint(start, end)
-    car1Y = 100 #setting position to car1Y
+    car1X = obstacle_x[0] #1st number from obstacle_x list
+    car1Y = -100 #setting position to car1Y
     car1Ychange = 10 #setting position to car1Ychange
     
     car2 = pygame.image.load('car game\car2.png') #setting the image to car2
-    car2X = random.randint(178,490) #generate random numbers: randint(start, end)
-    car2Y = 100 #setting position to car2Y
+    car2X = obstacle_x[1] #2nd number from obstacle_x list
+    car2Y = -100 #setting position to car2Y
     car2Ychange = 10 #setting position to car2Ychange
 
     car3 = pygame.image.load('car game\car3.png') #setting the image to car3
-    car3X = random.randint(178,490) #generate random numbers: randint(start, end)
-    car3Y = 100 #setting position to car3Y
+    car3X = obstacle_x[2] #3rd number from obstacle_x list
+    car3Y = -100 #setting position to car3Y
     car3Ychange = 10 #setting position to car3Ychange
-       
-
-    time.sleep(3) #wait for 3 seconds before the cars start coming so the game has time to load    
-        
+    
+    
     run = True
+    
+    max_time = 3
+    start_time = time.time()  # remember when we started
+    
     while run:
+        if (time.time() - start_time) > max_time: #run for a given amount of time only
+            break
+        
         for event in pygame.event.get(): #handles the internal events and retrieves a list of external events
             if event.type == pygame.QUIT: 
                 run = False
@@ -264,11 +278,6 @@ def gameloop(): #defining our gameloop function
                 if event.key == pygame.K_LEFT: #if left key is pressed
                     maincarX_change -= 5 #move main car to the left 5
                 
-                if event.key == pygame.K_UP: #if up key is pressed
-                    maincarY_change -= 5 #move main car up 5
-                    
-                if event.key == pygame.K_DOWN: #if down key is pressed
-                    maincarY_change += 5 #move main car down 5
 
             if event.type == pygame.KEYUP: #check if key is lifted up
                 if event.key == pygame.K_RIGHT: #if right key is lifted up
@@ -277,11 +286,6 @@ def gameloop(): #defining our gameloop function
                 if event.key == pygame.K_LEFT: #if left key is lifted up
                     maincarX_change = 0 #no change is made
                 
-                if event.key == pygame.K_UP: #if up key is lifted up
-                    maincarY_change = 0 #no change is made
-                    
-                if event.key == pygame.K_DOWN: #if down key is lifted up
-                    maincarY_change = 0 #no change is made     
 
         #setting boundary for main car
         if maincarX < 178: #if position of car is less than 178
@@ -341,37 +345,18 @@ def gameloop(): #defining our gameloop function
         #DETECTING COLLISIONS BETWEEN THE CARS
 
         #getting distance between our main car and car1
-        def iscollision(car1X,car1Y,maincarX,maincarY):
+        def iscollision(carX,carY,maincarX,maincarY):
             
             #Using the formula to calculate distance from the coordinates
             #Distance between the main car (controlled by player) and car 1 (obstacle car)
-            distance = math.sqrt(math.pow(car1X-maincarX,2) + math.pow(car1Y - maincarY,2)) 
+            distance = math.sqrt(math.pow(carX-maincarX,2) + math.pow(carY - maincarY,2)) 
 
             #checking if distance is smaller than 50, then collision will occur
             if distance < 50: 
                 return True
             else:
                 return False
-
-        #getting distance between our main car and car2
-        def iscollision(car2X,car2Y,maincarX,maincarY):
-            distance = math.sqrt(math.pow(car2X-maincarX,2) + math.pow(car2Y - maincarY,2))
-
-            #checking if distance is smaller than 50, then collision will occur
-            if distance < 50:
-                return True
-            else:
-                return False
-
-        #getting distance between our main car and car3
-        def iscollision(car3X,car3Y,maincarX,maincarY):
-            distance = math.sqrt(math.pow(car3X-maincarX,2) + math.pow(car3Y - maincarY,2))
-
-            #checking if distance is smaller then 50, then collision will occur
-            if distance < 50:
-                return True
-            else:
-                return False
+        
         
         ##### giving collision a variable #####
 

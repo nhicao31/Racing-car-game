@@ -53,10 +53,20 @@ def aboutIMG(x,y):
                 run = False #if the type of the event is to uninitialize all pygame modules then return false and stop running
 
 #MZ
-def play(x,y):
+def easy(x,y):
+    #write "EASY" in the given font, antialias = True means the characters will have smoother edges, color red
+    playtext = IntroFont.render("EASY",True,(255,0,0))
+    #draw playtext ("EASY" written in red) onto the screen at x width and y height
+    screen.blit (playtext,(x,y))
+def medium(x,y):
+    #write "medium" in the given font, antialias = True means the characters will have smoother edges, color red
+    playtext = IntroFont.render("MEDIUM",True,(255,0,0))
+    #draw playtext ("MEDIUM" written in red) onto the screen at x width and y height
+    screen.blit (playtext,(x,y))
+def hard(x,y):
     #write "PLAY" in the given font, antialias = True means the characters will have smoother edges, color red
-    playtext = IntroFont.render("PLAY",True,(255,0,0))
-    #draw playtext ("PLAY" written in red) onto the screen at x width and y height
+    playtext = IntroFont.render("HARD",True,(255,0,0))
+    #draw playtext ("HARD" written in red) onto the screen at x width and y height
     screen.blit (playtext,(x,y))
 def ABOUT(x,y):
     #write "ABOUT" in red at the position (x,y)
@@ -67,6 +77,7 @@ def Instruction(x,y):
     instructionText = IntroFont.render("INSTRUCTION",True,(255,0,0))
     screen.blit(instructionText,(x,y))
 
+
 #SP
 def introscreen():
     run = True
@@ -75,36 +86,55 @@ def introscreen():
     while run :
         screen.fill((0,0,0)) #fill the whole screen with a black colour (0,0,0)
         introImg(0,0) #displace the intro image on the whole screen
-        play(100,450) #displacing the 'play' button at position (100,450)
-        Instruction(280,450) #displacing the 'Instruction' button at position (280,450)
-        ABOUT(615,450) #displacing the 'ABOUT' button at position (615,450)
+        #Writing text for all 5 buttons at given positions
+        easy(90,450) 
+        medium(320,450) 
+        hard(615,450) 
+        ABOUT(475,530)
+        Instruction(130,530) 
 
         x,y = pygame.mouse.get_pos() #getting the mouse cursor position
 
         #storing rectangle coordinates (x, y, length, height) by making variables
-        button1 = pygame.Rect(60,440,175,50) #creating a rectangle at coordinates (60,440,175,50)
-        button2 = pygame.Rect(265,440,300,50) #creating a rectangle at coordinates (265,440,300,50)
-        button3 = pygame.Rect(600,440,165,50) #creating a rectangle at coordinates (600,440,165,50)
+        easybutton = pygame.Rect(75,440,135,50) #creating a rectangle at coordinates (60,440,175,50)
+        mediumbutton = pygame.Rect(305,440,185,50) #creating a rectangle at coordinates (265,440,300,50)
+        hardbutton = pygame.Rect(600,440,140,50) #creating a rectangle at coordinates (600,440,165,50)
+        aboutbutton = pygame.Rect(460,520,165,50) #creating a rectangle at coordinates (600,440,165,50)
+        instructionbutton = pygame.Rect(115,520,305,50) #creating a rectangle at coordinates (600,440,165,50)
 
-        pygame.draw.rect(screen, (255,255,255), button1,6)
-        pygame.draw.rect(screen, (255,255,255), button2,6)
-        pygame.draw.rect(screen,(255,255,255),button3,6)
+
+        pygame.draw.rect(screen, (255,255,255), easybutton, 6)
+        pygame.draw.rect(screen, (255,255,255), mediumbutton, 6)
+        pygame.draw.rect(screen, (255,255,255), hardbutton, 6)
+        pygame.draw.rect(screen, (255,255,255), aboutbutton, 6)
+        pygame.draw.rect(screen, (255,255,255), instructionbutton, 6)
+
         #pygame.draw.rect takes these arguments (surface, color, coordinates, border)
+        
 
-        if button1.collidepoint(x,y): #if the cursor is on button1 (PLAY button)
-            pygame.draw.rect(screen, (155,0,0), button1,6) #change from inactive to active by changing color from white to red
+        if easybutton.collidepoint(x,y): #if the cursor is on EASY
+            pygame.draw.rect(screen, (155,0,0), easybutton,6) #change from inactive to active by changing color from white to red
             if click: #if click on the PLAY button
                 countdown() #move to the countdown function to start the game
+        
+        if mediumbutton.collidepoint(x,y): #if the cursor is on MEDIUM
+            pygame.draw.rect(screen, (155,0,0), mediumbutton,6) #change from inactive to active by changing color from white to red
+            if click: #if click on the INSTRUCTION button
+                instructionIMG(0,0) #display the instruction image
+        
+        if hardbutton.collidepoint(x,y): #if the cursor is on HARD
+            pygame.draw.rect(screen, (155,0,0), hardbutton,6) #change from inactive to active by changing color from white to red
+            if click: #if click on the INSTRUCTION button
+                instructionIMG(0,0) #display the instruction image
 
-
-        if button2.collidepoint(x,y): #if the cursor is on button2 (INSTRUCTION button) 
-            pygame.draw.rect(screen, (155,0,0), button2,6) #change from inactive to active by changing color from white to red
+        if instructionbutton.collidepoint(x,y): #if the cursor is on INSTRUCTION
+            pygame.draw.rect(screen, (155,0,0), instructionbutton,6) #change from inactive to active by changing color from white to red
             if click: #if click on the INSTRUCTION button
                 instructionIMG(0,0) #display the instruction image
 
         
-        if button3.collidepoint(x,y): #if the cursor is on button3 (ABOUT button) 
-            pygame.draw.rect(screen,(155,0,0),button3,6) #change from inactive to active by changing color from white to red
+        if aboutbutton.collidepoint(x,y): #if the cursor is on ABOUT
+            pygame.draw.rect(screen,(155,0,0),aboutbutton,6) #change from inactive to active by changing color from white to red
             if click: #if click on the ABOUT button
                 aboutIMG(0,0) #display the about image
                 

@@ -103,6 +103,7 @@ def introscreen():
         instructionbutton = pygame.Rect(115,520,305,50) #creating a rectangle at coordinates (600,440,165,50)
 
 
+
         pygame.draw.rect(screen, (255,255,255), easybutton, 6)
         pygame.draw.rect(screen, (255,255,255), mediumbutton, 6)
         pygame.draw.rect(screen, (255,255,255), hardbutton, 6)
@@ -111,21 +112,20 @@ def introscreen():
 
         #pygame.draw.rect takes these arguments (surface, color, coordinates, border)
         
-
         if easybutton.collidepoint(x,y): #if the cursor is on EASY
             pygame.draw.rect(screen, (155,0,0), easybutton,6) #change from inactive to active by changing color from white to red
             if click: #if click on the PLAY button
-                countdown() #move to the countdown function to start the game
+                countdown(5) #move to the countdown function to start the game
         
         if mediumbutton.collidepoint(x,y): #if the cursor is on MEDIUM
             pygame.draw.rect(screen, (155,0,0), mediumbutton,6) #change from inactive to active by changing color from white to red
             if click: #if click on the INSTRUCTION button
-                instructionIMG(0,0) #display the instruction image
+                countdown(10) #display the instruction image
         
         if hardbutton.collidepoint(x,y): #if the cursor is on HARD
             pygame.draw.rect(screen, (155,0,0), hardbutton,6) #change from inactive to active by changing color from white to red
             if click: #if click on the INSTRUCTION button
-                instructionIMG(0,0) #display the instruction image
+                countdown(15) #display the instruction image
 
         if instructionbutton.collidepoint(x,y): #if the cursor is on INSTRUCTION
             pygame.draw.rect(screen, (155,0,0), instructionbutton,6) #change from inactive to active by changing color from white to red
@@ -150,7 +150,7 @@ def introscreen():
   
 #MZ
 ###### Countdown ######
-def countdown():
+def countdown(level):
     font2 = pygame.font.Font('freesansbold.ttf', 85) #font2 is the same font as before, but bigger size
     countdownBacground = pygame.image.load('car game/bg.png') #load the background image for countdown
     three = font2.render('3',True, (187,30,16)) #writes 3 in red
@@ -196,12 +196,12 @@ def countdown():
     screen.blit(go,(300,250)) #draws go!! onto the window
     pygame.display.update() #update window display
     time.sleep(1) #waits for 1 second
-    gameloop() #calling the gameloop so that our game can start after the countdown
+    gameloop(level) #calling the gameloop so that our game can start after the countdown
     pygame.display.update()
 
 
 #SP
-def gameloop(): #defining our gameloop function
+def gameloop(level): #defining our gameloop function
 
     pygame.mixer.music.load('car game\BackgroundMusic.mp3') #load a music file
     pygame.mixer.music.play() #start the music
@@ -273,22 +273,22 @@ def gameloop(): #defining our gameloop function
     car1 = pygame.image.load('car game\car1.jpeg') #setting the image to car1
     car1X = obstacle_x[0] #1st number from obstacle_x list
     car1Y = -100 #setting position to car1Y
-    car1Ychange = 10 #setting position to car1Ychange
+    car1Ychange = level #setting position to car1Ychange
     
     car2 = pygame.image.load('car game\car2.png') #setting the image to car2
     car2X = obstacle_x[1] #2nd number from obstacle_x list
     car2Y = -100 #setting position to car2Y
-    car2Ychange = 10 #setting position to car2Ychange
+    car2Ychange = level #setting position to car2Ychange
 
     car3 = pygame.image.load('car game\car3.png') #setting the image to car3
     car3X = obstacle_x[2] #3rd number from obstacle_x list
     car3Y = -100 #setting position to car3Y
-    car3Ychange = 10 #setting position to car3Ychange
+    car3Ychange = level #setting position to car3Ychange
     
     
     run = True
     
-    max_time = 3
+    max_time = 20
     start_time = time.time()  # remember when we started
     
     while run:

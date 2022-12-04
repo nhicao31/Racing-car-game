@@ -1,4 +1,4 @@
-# Sudoku-CHE120
+# Goose game-CHE120
 
 https://www.geeksforgeeks.org/building-and-visualizing-sudoku-game-using-pygame/
 

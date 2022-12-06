@@ -66,7 +66,7 @@ def Instruction(x,y):
 #SP
 def introscreen():
     run = True
-    pygame.mixer.music.load('goose game/startingMusic.mp3') #load a music file for playback
+    pygame.mixer.music.load('goose game/BackgroundMusic.mp3') #load a music file for playback
     pygame.mixer.music.play() #start playing music
     while run :
         screen.fill((0,0,0)) #fill the whole screen with a black colour (0,0,0)
@@ -115,7 +115,7 @@ def introscreen():
         if instructionbutton.collidepoint(x,y): #if the cursor is on INSTRUCTION
             pygame.draw.rect(screen, (155,0,0), instructionbutton,6) #change from inactive to active by changing color from white to red
             if click: #if click on the INSTRUCTION button
-                instructionIMG(0,0) #display the instruction image
+                instructionIMG(0,0) #display the instruction image 
                 
                 
         click = False #checking for mouse click event
@@ -172,7 +172,7 @@ def countdown(level):
     pygame.display.update()
     time.sleep(0.5) #waits for 1/2 second
 
-    ###### Displaying  Go!!! ######
+    ###### Displaying  Go!!! ###### 
     screen.blit(go,(300,250)) #draws go!! onto the window
     pygame.display.update() #update window display
     time.sleep(1) #waits for 1 second
@@ -183,8 +183,6 @@ def countdown(level):
 #SP
 def gameloop(level): #defining our gameloop function
 
-    pygame.mixer.music.load('goose game\BackgroundMusic.mp3') #load a music file
-    pygame.mixer.music.play() #start the music
     crash_sound = pygame.mixer.Sound('goose game\car_crash.wav') #create a new Sound object from a file for collision
 
     #scoring part
@@ -226,9 +224,6 @@ def gameloop(level): #defining our gameloop function
                     countdown(level)
                 if event.key == pygame.K_ESCAPE: #is escape key is pressed
                     introscreen()    
-                #pygame.quit()
-                    #sys.exit() #quit and exit game
-        
    
 
     bg = pygame.image.load('goose game/bg.jpg') #setting background image

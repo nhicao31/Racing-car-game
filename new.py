@@ -14,10 +14,10 @@ screen = pygame.display.set_mode((798,600)) #intialize a window for display
 pygame.mixer.init()
 
 #changing title of the game window
-pygame.display.set_caption('Racing Beast')
+pygame.display.set_caption('Racing Goose')
 
 #changing the logo
-logo = pygame.image.load('car game/logo.jpeg') #load 'logo' image from car game folder
+logo = pygame.image.load('goose game/logo.png')
 pygame.display.set_icon(logo)
 
 
@@ -25,12 +25,12 @@ pygame.display.set_icon(logo)
 IntroFont = pygame.font.Font("freesansbold.ttf", 38) #create a variable with new font, size 38
 
 def introImg(x,y):
-    intro = pygame.image.load("car game\intro.png") # load 'intro' image
+    intro = pygame.image.load("goose game\intro.png") # load 'intro' image
     #draw 'intro' image onto the game window with width x and height y
     screen.blit(intro,(x,y))
 
 def instructionIMG(x,y):
-    instruct = pygame.image.load("car game\instruction.png") #load 'instruction' image as instruct
+    instruct = pygame.image.load("goose game\instruction.png") #load 'instruction' image as instruct
     run = True
     while run: # equivalent of while True -> forever loop
         screen.blit(instruct,(x,y)) #draw instructions onto game window
@@ -40,17 +40,6 @@ def instructionIMG(x,y):
         for event in pygame.event.get(): #for an event in the queue of events
             if event.type == pygame.QUIT:
                 run = False #stop running the loop if the event type is quit
-
-#SP  
-def aboutIMG(x,y):
-    aboutimg = pygame.image.load("car game\About.png") #load new image from a file
-    run = True
-    while run: 
-        screen.blit(aboutimg,(x,y)) #takes the background surface (aboutimg), draw the image onto the screen
-        pygame.display.update() #update portions of the screen for software displays
-        for event in pygame.event.get(): #get events from the queue
-            if event.type == pygame.QUIT:
-                run = False #if the type of the event is to uninitialize all pygame modules then return false and stop running
 
 #MZ
 def easy(x,y):
@@ -68,10 +57,6 @@ def hard(x,y):
     playtext = IntroFont.render("HARD",True,(255,0,0))
     #draw playtext ("HARD" written in red) onto the screen at x width and y height
     screen.blit (playtext,(x,y))
-def ABOUT(x,y):
-    #write "ABOUT" in red at the position (x,y)
-    aboutText = IntroFont.render("ABOUT",True,(255,0,0))
-    screen.blit (aboutText,(x,y))
 def Instruction(x,y):
     #write 'INSTRUCTION' in red at position (x,y)
     instructionText = IntroFont.render("INSTRUCTION",True,(255,0,0))
@@ -81,62 +66,57 @@ def Instruction(x,y):
 #SP
 def introscreen():
     run = True
-    pygame.mixer.music.load('car game/startingMusic.mp3') #load a music file for playback
+    pygame.mixer.music.load('goose game/startingMusic.mp3') #load a music file for playback
     pygame.mixer.music.play() #start playing music
     while run :
         screen.fill((0,0,0)) #fill the whole screen with a black colour (0,0,0)
         introImg(0,0) #displace the intro image on the whole screen
         #Writing text for all 5 buttons at given positions
-        easy(90,450) 
-        medium(320,450) 
-        hard(615,450) 
-        ABOUT(475,530)
-        Instruction(130,530) 
+        easy(340,290) 
+        medium(315,370) 
+        hard(340,450) 
+        Instruction(260,530) 
 
         x,y = pygame.mouse.get_pos() #getting the mouse cursor position
 
         #storing rectangle coordinates (x, y, length, height) by making variables
-        easybutton = pygame.Rect(75,440,135,50) #creating a rectangle at coordinates (60,440,175,50)
-        mediumbutton = pygame.Rect(305,440,185,50) #creating a rectangle at coordinates (265,440,300,50)
-        hardbutton = pygame.Rect(600,440,140,50) #creating a rectangle at coordinates (600,440,165,50)
-        aboutbutton = pygame.Rect(460,520,165,50) #creating a rectangle at coordinates (600,440,165,50)
-        instructionbutton = pygame.Rect(115,520,305,50) #creating a rectangle at coordinates (600,440,165,50)
+        easybutton = pygame.Rect(245,280,305,50) #creating a rectangle at coordinates (60,440,175,50)
+        mediumbutton = pygame.Rect(245,360,305,50) #creating a rectangle at coordinates (265,440,300,50)
+        hardbutton = pygame.Rect(245,440,305,50) #creating a rectangle at coordinates (600,440,165,50)
+        instructionbutton = pygame.Rect(245,520,305,50) #creating a rectangle at coordinates (600,440,165,50)
 
 
 
         pygame.draw.rect(screen, (255,255,255), easybutton, 6)
         pygame.draw.rect(screen, (255,255,255), mediumbutton, 6)
         pygame.draw.rect(screen, (255,255,255), hardbutton, 6)
-        pygame.draw.rect(screen, (255,255,255), aboutbutton, 6)
         pygame.draw.rect(screen, (255,255,255), instructionbutton, 6)
 
         #pygame.draw.rect takes these arguments (surface, color, coordinates, border)
         
         if easybutton.collidepoint(x,y): #if the cursor is on EASY
             pygame.draw.rect(screen, (155,0,0), easybutton,6) #change from inactive to active by changing color from white to red
-            if click: #if click on the PLAY button
-                countdown(5) #move to the countdown function to start the game
+            if click: #if click on the EASY button
+                level = 1
+                countdown(level) #move to the countdown function to start the game
         
         if mediumbutton.collidepoint(x,y): #if the cursor is on MEDIUM
             pygame.draw.rect(screen, (155,0,0), mediumbutton,6) #change from inactive to active by changing color from white to red
-            if click: #if click on the INSTRUCTION button
-                countdown(10) #display the instruction image
+            if click: #if click on the MEIDUM button
+                level = 1.5
+                countdown(level) #move to the countdown function to start the game
         
         if hardbutton.collidepoint(x,y): #if the cursor is on HARD
             pygame.draw.rect(screen, (155,0,0), hardbutton,6) #change from inactive to active by changing color from white to red
-            if click: #if click on the INSTRUCTION button
-                countdown(15) #display the instruction image
+            if click: #if click on the HARD button
+                level = 2.5
+                countdown(level) #move to the countdown function to start the game
 
         if instructionbutton.collidepoint(x,y): #if the cursor is on INSTRUCTION
             pygame.draw.rect(screen, (155,0,0), instructionbutton,6) #change from inactive to active by changing color from white to red
             if click: #if click on the INSTRUCTION button
                 instructionIMG(0,0) #display the instruction image
-
-        
-        if aboutbutton.collidepoint(x,y): #if the cursor is on ABOUT
-            pygame.draw.rect(screen,(155,0,0),aboutbutton,6) #change from inactive to active by changing color from white to red
-            if click: #if click on the ABOUT button
-                aboutIMG(0,0) #display the about image
+                
                 
         click = False #checking for mouse click event
         for event in pygame.event.get(): #handles the internal events and retrieves a list of external events
@@ -152,7 +132,7 @@ def introscreen():
 ###### Countdown ######
 def countdown(level):
     font2 = pygame.font.Font('freesansbold.ttf', 85) #font2 is the same font as before, but bigger size
-    countdownBacground = pygame.image.load('car game/bg.png') #load the background image for countdown
+    countdownBacground = pygame.image.load('goose game/bg.jpg') #load the background image for countdown
     three = font2.render('3',True, (187,30,16)) #writes 3 in red
     two =   font2.render('2',True, (255,255,0)) #writes 2 in yellow
     one =   font2.render('1',True, (51,165,50)) #writes 1 in green
@@ -203,37 +183,37 @@ def countdown(level):
 #SP
 def gameloop(level): #defining our gameloop function
 
-    pygame.mixer.music.load('car game\BackgroundMusic.mp3') #load a music file
+    pygame.mixer.music.load('goose game\BackgroundMusic.mp3') #load a music file
     pygame.mixer.music.play() #start the music
-    crash_sound = pygame.mixer.Sound('car game\car_crash.wav') #create a new Sound object from a file for collision
+    crash_sound = pygame.mixer.Sound('goose game\car_crash.wav') #create a new Sound object from a file for collision
 
     #scoring part
     score_value = 0 #introduce score_value variable
     font1= pygame.font.Font("freesansbold.ttf",25)  #create a new Font object from a file with size 25
 
     def show_score(x,y):
-        score = font1.render("SCORE: "+ str(score_value), True, (255,0,0)) #show score on new surface: render(text, antialias, color, background=None)
+        score = font1.render("SCORE: "+ str(score_value), True, (255,255,255)) #show score on new surface: render(text, antialias, color, background=None)
         screen.blit(score, (x,y)) #takes the "score" surface and display the score onto the screen
 
     #highscore part
-    with open ("car game\highscore.txt","r") as f: #open the file using "with" so you do not have to close the file later, it'll close itself
+    with open ("goose game\highscore.txt","r") as f: #open the file using "with" so you do not have to close the file later, it'll close itself
             highscore = f.read() #read a single line from the file
     def show_highscore(x,y): 
-        Hiscore_text = font1.render('HISCORE :' + str(highscore),True,(255,0,0)) #show high score on new surface: render(text, antialias, color, background=None)
+        Hiscore_text = font1.render('HISCORE :' + str(highscore),True,(255,255,255)) #show high score on new surface: render(text, antialias, color, background=None)
         screen.blit (Hiscore_text,(x,y)) #takes the "Hiscore_text" surface and display the high score onto the screen
         pygame.display.update() #make the display surface appear on the screen
     
     #game over function
     def gameover():
-        gameoverImg = pygame.image.load("car game\gameover.png") #setting the image when the game is over
+        gameoverImg = pygame.image.load("goose game\gameover.png") #setting the image when the game is over
         run = True 
         while run:
 
             screen.blit(gameoverImg,(0,0)) #takes the "gameoverImg" surface and display on the screen
             time.sleep(0.5) #add delay in time: 0.5 seconds
-            show_score(330,400) #run the function show_score
+            show_score(330,100) #run the function show_score
             time.sleep(0.5) #add delay in time: 0.5 seconds
-            show_highscore(330,450) #run the function show_highscore
+            show_highscore(330,150) #run the function show_highscore
             pygame.display.update() #make the display surface appear on the screen
             
             for event in pygame.event.get(): #handles the internal events and retrieves a list of external events
@@ -243,18 +223,19 @@ def gameloop(level): #defining our gameloop function
                 sys.exit() #if the type of the event is to uninitialize all pygame modules then return false, quit pygame and stop running
              if event.type == pygame.KEYDOWN: #detect if it is clicked
                 if event.key == pygame.K_SPACE: #if space key is pressed
-                    countdown() #enable countdown function
+                    countdown(level)
                 if event.key == pygame.K_ESCAPE: #is escape key is pressed
-                    pygame.quit()
-                    sys.exit() #quit and exit game
+                    introscreen()    
+                #pygame.quit()
+                    #sys.exit() #quit and exit game
         
    
 
-    bg = pygame.image.load('car game/bg.png') #setting background image
+    bg = pygame.image.load('goose game/bg.jpg') #setting background image
     
     
     # setting player's main car
-    maincar = pygame.image.load('car game\car.png') #setting image for main car
+    maincar = pygame.image.load('goose game\car.png') #setting image for main car
     maincarX = 350 #position of main car on x axis
     maincarY = 495 #position of main car on y axis
     maincarX_change = 0 #introduce position of maincarX_change variable
@@ -270,17 +251,17 @@ def gameloop(level): #defining our gameloop function
     obstacle_x = random.sample(random_x, 3)
     
     #other cars
-    car1 = pygame.image.load('car game\car1.jpeg') #setting the image to car1
+    car1 = pygame.image.load('goose game\goose1.png') #setting the image to car1
     car1X = obstacle_x[0] #1st number from obstacle_x list
     car1Y = -100 #setting position to car1Y
     car1Ychange = level #setting position to car1Ychange
     
-    car2 = pygame.image.load('car game\car2.png') #setting the image to car2
+    car2 = pygame.image.load('goose game\goose2.png') #setting the image to car2
     car2X = obstacle_x[1] #2nd number from obstacle_x list
     car2Y = -100 #setting position to car2Y
     car2Ychange = level #setting position to car2Ychange
 
-    car3 = pygame.image.load('car game\car3.png') #setting the image to car3
+    car3 = pygame.image.load('goose game\goose3.png') #setting the image to car3
     car3X = obstacle_x[2] #3rd number from obstacle_x list
     car3Y = -100 #setting position to car3Y
     car3Ychange = level #setting position to car3Ychange
@@ -293,7 +274,14 @@ def gameloop(level): #defining our gameloop function
     
     while run:
         if (time.time() - start_time) > max_time: #run for a given amount of time only
-            break
+            winning = pygame.image.load("goose game\winning.png") # load 'winning' image
+            run = True
+            while run: # equivalent of while True -> forever loop
+                screen.blit(winning,(0,0)) #draw instructions onto game window
+                pygame.display.update()
+                time.sleep(3)
+                run = False
+
         
         for event in pygame.event.get(): #handles the internal events and retrieves a list of external events
             if event.type == pygame.QUIT: 
@@ -303,10 +291,10 @@ def gameloop(level): #defining our gameloop function
 
             if event.type == pygame.KEYDOWN: #check if any key is pressed
                 if event.key == pygame.K_RIGHT: #if right key is pressed
-                    maincarX_change += 5 #move main car to the right 5
+                    maincarX_change += 1 #move main car to the right 1
             
                 if event.key == pygame.K_LEFT: #if left key is pressed
-                    maincarX_change -= 5 #move main car to the left 5
+                    maincarX_change -= 1 #move main car to the left 1
                 
 
             if event.type == pygame.KEYUP: #check if key is lifted up
